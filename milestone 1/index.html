@@ -17,12 +17,12 @@
 
     <div id="app">
         <div class="container my-size overflow-hidden">
-            <div class="row">
+            <div class="d-flex content overflow-hidden">
                 <!-- left sidebar -->
                 <div class="col-4 sidebar overflow-hidden">
-                    <div class="row flex-column">
+                    <div class="d-flex side-content flex-column overflow-hidden">
 
-                        <div class="user-bar py-2">
+                        <div class="user-bar p-2">
                             <div class="row justify-content-between">
                                 <div class="col user-avatar">
                                     <div class="avatar d-inline-block">
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         
-                        <div class="notifications-bar d-flex gap-2 py-2">
+                        <div class="notifications-bar d-flex gap-2 p-2">
                             <!-- icona + testo, bg blu -->
                             <div class="notification-icon">
                                 <i class="fa-solid fa-bell-slash"></i>
@@ -74,7 +74,7 @@
                         </div>
                         
                         <div class="contact-list flex-grow-1 overflow-auto">
-                            <div class="contact d-flex py-2 justify-content-between" v-for="contact in contactList">
+                            <div class="contact d-flex p-2 justify-content-between" v-for="contact in contactList">
                                 <div class="user d-flex gap-2">
                                     <div class="avatar">
                                         <img :src="'../img/avatar' + contact.avatar + '.jpg'" alt="">
@@ -92,7 +92,56 @@
                 </div>
                 
                 <!-- chat box -->
-                <div class="col flex-grow-1 main-content"></div>
+                <div class="col flex-grow-1 main-content d-flex flex-column">
+                    <div class="top-bar d-flex justify-content-between p-2">
+                        <div class="user d-flex gap-2">
+                            <div class="avatar">
+                                <img src="../img/avatar_1.jpg" alt="">
+                            </div>
+                            <div class="text">
+                                <div class="name">Michele</div>
+                                <span>Ultimo accesso oggi alle 12:00</span>
+                            </div>
+                        </div>
+
+                        <div class="user-tools d-flex justify-content-end align-items-center">
+                            <ul class="d-flex list-unstyled gap-3">
+                                <li>
+                                    <a href="">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa-solid fa-paperclip"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="chat-content flex-grow-1">
+                        <div class="chat-messages">
+                            <div class="message-box send"></div>
+                            <div class="message-box send"></div>
+                            <div class="message-box received"></div>
+                        </div>
+                    </div>
+                    <div class="bottom-bar d-flex justify-content-around align-items-center py-2 px-3 gap-5">
+                        <div class="emoji-icon">
+                            <i class="fa-regular fa-face-smile"></i>
+                        </div>
+                        <input type="text" placeholder="Scrivi un messaggio" class="message-text flex-grow-1 rounded">
+                        <div class="mic-icon">
+                            <i class="fa-solid fa-microphone"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
