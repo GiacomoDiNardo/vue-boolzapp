@@ -170,6 +170,7 @@ new Vue ({
   data: {
     contactList: contatti,
     activeUser: contatti[0],
+    newMessage: "",
   },
 
   methods: {
@@ -181,6 +182,20 @@ new Vue ({
       if (this.activeUser === contatto) {
         return "active"
       }
+    },
+
+    sendNewMessage () {
+      if (this.newMessage.trim() === "") {
+        return;
+      };
+
+      this.activeUser.messages.push({
+        date: "19:00",
+        message: this.newMessage,
+        status: "sent",
+      });
+
+      this.newMessage = "";
     },
   },
 

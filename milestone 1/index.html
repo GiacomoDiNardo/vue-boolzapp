@@ -74,11 +74,12 @@
                         
                         <div class="contact-list flex-grow-1 overflow-auto">
                             <div class="contact d-flex p-2 justify-content-between" 
-                            v-for="(contact, i) in contactList"
-                            @click="setActiveUser(contact)"
-                            :class="activeContact(contact)"
-                            >
+                                v-for="(contact, i) in contactList"
+                                @click="setActiveUser(contact)"
+                                :class="activeContact(contact)">
+
                                 <div class="user d-flex gap-2">
+
                                     <div class="avatar">
                                         <img :src="'../img/avatar' + contact.avatar + '.jpg'" alt="">
                                     </div>
@@ -87,9 +88,11 @@
                                         <div class="name">{{contact.name}}</div>
                                         <span class="last-send">Ultimo messaggio inviato</span>
                                     </div>
+
                                 </div>
 
                                 <div class="time">12:00</div>
+
                             </div>
                         </div>
                         
@@ -100,16 +103,20 @@
                 <div class="flex-grow-1 main-content d-flex flex-column">
                     <div class="top-bar d-flex justify-content-between py-2 px-3">
                         <div class="user d-flex gap-2">
+
                             <div class="avatar">
                                 <img :src="'../img/avatar' + activeUser.avatar + '.jpg'" alt="">
                             </div>
+
                             <div class="text">
                                 <div class="name">{{activeUser.name}}</div>
                                 <span>Ultimo accesso oggi alle 12:00</span>
                             </div>
+
                         </div>
 
                         <div class="user-tools d-flex justify-content-end align-items-center">
+                            
                             <ul class="d-flex list-unstyled gap-3">
                                 <li>
                                     <a href="">
@@ -127,6 +134,7 @@
                                     </a>
                                 </li>
                             </ul>
+
                         </div>
                     </div>
 
@@ -141,11 +149,18 @@
                             
                         </div>
                     </div>
+
                     <div class="bottom-bar d-flex justify-content-around align-items-center py-2 px-3 gap-5">
                         <div class="emoji-icon">
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
-                        <input type="text" placeholder="Scrivi un messaggio" class="message-text flex-grow-1 rounded">
+
+                        <input type="text" 
+                            placeholder="Scrivi un messaggio" 
+                            class="message-text flex-grow-1 rounded"
+                            v-model="newMessage"
+                            @keyup.enter="sendNewMessage()">
+
                         <div class="mic-icon">
                             <i class="fa-solid fa-microphone"></i>
                         </div>
