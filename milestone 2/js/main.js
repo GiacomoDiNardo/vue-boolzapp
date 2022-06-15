@@ -169,20 +169,10 @@ new Vue ({
 
   data: {
     contactList: contatti,
-    activeUser: contatti[0],
+
   },
 
   methods: {
-    setActiveUser(contatto) {
-      this.activeUser = contatto;
-    },
-
-    activeContact (contatto){
-      if (this.activeUser === contatto) {
-        return "active"
-      }
-    },
-  },
-
-  
+    
+  }
 })

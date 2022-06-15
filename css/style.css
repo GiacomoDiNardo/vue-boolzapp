@@ -78,10 +78,15 @@ ul {
 .contact-list {
     background-color: white;
     max-height: 100%;
+    border-top: 1px solid var(--bs-gray-500);
 }
 
 .contact-list .contact {
     border-bottom: 1px solid var(--bs-primary);
+}
+
+.contact-list .contact.active {
+    background-color: #E9EBEB;
 }
 
 .text .last-send, .time {
