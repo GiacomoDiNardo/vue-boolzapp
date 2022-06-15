@@ -25,18 +25,10 @@
     position: relative;
 }
 
-.content {
-    height: 100%;
-}
-
 .sidebar {
-    min-width: 200px;
     background-color: var(--bs-primary);
     height: 100%;
-}
-
-.side-content {
-    height: 100%;
+    min-width: 400px;
 }
 
 .avatar img {
@@ -114,4 +106,28 @@ ul {
 .message-text {
     border: none;
     padding: .5rem;
+}
+
+.message-box {
+    border-radius: 10px;
+    max-width: 300px;
+    padding: .5rem 1rem 1rem 1rem;
+    margin: 1rem 0;
+}
+
+.message-box.send {
+    background-color: #D5F9BA;
+    align-self: flex-end;
+}
+
+.message-box.received {
+    background-color: white;
+    align-self: flex-start;
+}
+
+.hour {
+    font-size: 10px;
+    color: var(--bs-gray-500);
+    bottom: 1px;
+    right: 5px;
 }

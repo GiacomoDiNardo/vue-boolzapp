@@ -8,19 +8,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="bg-green"></div>
 
 
     <div id="app">
-        <div class="container my-size overflow-hidden">
-            <div class="d-flex content overflow-hidden">
+        <div class="container my-size">
+            <div class="d-flex content h-100">
                 <!-- left sidebar -->
-                <div class="col-4 sidebar overflow-hidden">
-                    <div class="d-flex side-content flex-column overflow-hidden">
+                <div class="sidebar">
+                    <div class="d-flex side-content flex-column h-100">
 
                         <div class="user-bar p-2">
                             <div class="row justify-content-between">
@@ -70,7 +70,6 @@
                                 <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Example text with button addon" aria-describedby="button-addon1">
                               </div>
-                              
                         </div>
                         
                         <div class="contact-list flex-grow-1 overflow-auto">
@@ -79,11 +78,13 @@
                                     <div class="avatar">
                                         <img :src="'../img/avatar' + contact.avatar + '.jpg'" alt="">
                                     </div>
+
                                     <div class="text">
                                         <div class="name">{{contact.name}}</div>
                                         <span class="last-send">Ultimo messaggio inviato</span>
                                     </div>
                                 </div>
+
                                 <div class="time">12:00</div>
                             </div>
                         </div>
@@ -92,8 +93,8 @@
                 </div>
                 
                 <!-- chat box -->
-                <div class="col flex-grow-1 main-content d-flex flex-column">
-                    <div class="top-bar d-flex justify-content-between p-2">
+                <div class="flex-grow-1 main-content d-flex flex-column">
+                    <div class="top-bar d-flex justify-content-between py-2 px-3">
                         <div class="user d-flex gap-2">
                             <div class="avatar">
                                 <img src="../img/avatar_1.jpg" alt="">
@@ -126,10 +127,19 @@
                     </div>
 
                     <div class="chat-content flex-grow-1">
-                        <div class="chat-messages">
-                            <div class="message-box send"></div>
-                            <div class="message-box send"></div>
-                            <div class="message-box received"></div>
+                        <div class="chat-messages px-5 d-flex flex-column">
+                            <div class="message-box send position-relative">
+                                <span>Hai portato a spasso il cane?</span>
+                                <div class="hour position-absolute">15:30</div>
+                            </div>
+                            <div class="message-box send position-relative">
+                                <span>Ricordati di sistemare i panni</span>
+                                <div class="hour position-absolute">15:50</div>
+                            </div>
+                            <div class="message-box received position-relative">
+                                <span>Tutto fatto!</span>
+                                <div class="hour position-absolute">16:15</div>
+                            </div>
                         </div>
                     </div>
                     <div class="bottom-bar d-flex justify-content-around align-items-center py-2 px-3 gap-5">
