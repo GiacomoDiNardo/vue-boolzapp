@@ -1,3 +1,6 @@
+dayjs.extend(dayjs_plugin_customParseFormat);
+dayjs.extend(dayjs_plugin_relativeTime);
+
 const contatti = [
   {
     name: "Michele",
@@ -190,7 +193,7 @@ new Vue ({
       };
 
       this.activeUser.messages.push({
-        date: "19:00",
+        date: dayjs(),
         message: this.newMessage,
         status: "sent",
       });
@@ -201,13 +204,16 @@ new Vue ({
 
       setTimeout(function replyMessage() {
         currentUser.messages.push({
-          date: "19:01",
+          date: dayjs(),
           message: "ok!",
           status: "received",
         });
       }, 1000) 
     },
-  },
 
-  
+    messageHour(date) {
+      
+      return dayjs(date, "DD/MM/YYYY HH:mm:ss").format("HH:mm");
+    },
+  },
 })

@@ -10,6 +10,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.8/dayjs.min.js' integrity='sha512-kZ+x2gdehn6OZMWZSp3Vt5R+v9hQTYEATQwaUfWquhxbvNVAy6IRtYs7asdyxKUTqG0I5ZqBqnzcBrpnHJCAGw==' crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.8/plugin/customParseFormat.min.js'
+                integrity='sha512-/rAikt6xZJcTqu7olN/2DFvqXDEUC31/yyFAYrSGi087R+j54QTWWRJxHtbN5NjppOxT3d1gk4ZwkPWX88W35w==' crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.8/plugin/relativeTime.min.js' 
+                integrity='sha512-2Sb0BW+c8+/rhj243eqCrgws9FsZkMjH8ErZvcT4HR1HzLpHMfqsSgnJ+gMvH+/GJmu6wdNOu54n93XwbQDCKQ==' crossorigin='anonymous'></script>
 </head>
 <body>
     <div class="bg-green"></div>
@@ -144,7 +150,7 @@
                             v-for="message in activeUser.messages"
                             :class="message.status === 'sent' ? 'send' : 'received'">
                                 <span>{{message.message}}</span>
-                                <div class="hour position-absolute">15:30</div>
+                                <div class="hour position-absolute">{{ messageHour(message.date) }}</div>
                             </div>
                             
                         </div>
