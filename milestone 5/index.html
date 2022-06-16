@@ -150,7 +150,7 @@
                             v-for="message in activeUser.messages"
                             :class="message.status === 'sent' ? 'send' : 'received'">
                                 <span>{{message.message}}</span>
-                                <div class="hour position-absolute">15:30</div>
+                                <div class="hour position-absolute">{{ messageHour(message.date) }}</div>
                             </div>
                             
                         </div>

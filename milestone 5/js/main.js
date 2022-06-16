@@ -193,7 +193,7 @@ new Vue ({
       };
 
       this.activeUser.messages.push({
-        date: "18:00",
+        date: dayjs(),
         message: this.newMessage,
         status: "sent",
       });
@@ -204,11 +204,16 @@ new Vue ({
 
       setTimeout(function replyMessage() {
         currentUser.messages.push({
-          date: "18:00",
+          date: dayjs(),
           message: "ok!",
           status: "received",
         });
       }, 1000) 
+    },
+
+    messageHour(date) {
+      
+      return dayjs(date, "DD/MM/YYYY HH:mm:ss").format("HH:mm");
     },
   },
 })
