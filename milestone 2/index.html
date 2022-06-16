@@ -74,13 +74,8 @@
                         </div>
                         
                         <div class="contact-list flex-grow-1 overflow-auto">
-                            <div class="contact d-flex p-2 justify-content-between" 
-                                v-for="(contact, i) in contactList"
-                                @click="setActiveUser(contact)"
-                                :class="activeContact(contact)">
-
+                            <div class="contact d-flex p-2 justify-content-between" v-for="contact in contactList">
                                 <div class="user d-flex gap-2">
-
                                     <div class="avatar">
                                         <img :src="'../img/avatar' + contact.avatar + '.jpg'" alt="">
                                     </div>
@@ -89,11 +84,9 @@
                                         <div class="name">{{contact.name}}</div>
                                         <span class="last-send">Ultimo messaggio inviato</span>
                                     </div>
-
                                 </div>
 
                                 <div class="time">12:00</div>
-
                             </div>
                         </div>
                         
@@ -101,23 +94,19 @@
                 </div>
                 
                 <!-- chat box -->
-                <div class="flex-grow-1 main-content d-flex flex-column overflow-hidden">
+                <div class="flex-grow-1 main-content d-flex flex-column">
                     <div class="top-bar d-flex justify-content-between py-2 px-3">
                         <div class="user d-flex gap-2">
-
                             <div class="avatar">
-                                <img :src="'../img/avatar' + activeUser.avatar + '.jpg'" alt="">
+                                <img src="../img/avatar_1.jpg" alt="">
                             </div>
-
                             <div class="text">
-                                <div class="name">{{activeUser.name}}</div>
+                                <div class="name">Michele</div>
                                 <span>Ultimo accesso oggi alle 12:00</span>
                             </div>
-
                         </div>
 
                         <div class="user-tools d-flex justify-content-end align-items-center">
-                            
                             <ul class="d-flex list-unstyled gap-3">
                                 <li>
                                     <a href="">
@@ -135,33 +124,30 @@
                                     </a>
                                 </li>
                             </ul>
-
                         </div>
                     </div>
 
-                    <div class="chat-content flex-grow-1 overflow-auto">
+                    <div class="chat-content flex-grow-1">
                         <div class="chat-messages px-5 d-flex flex-column">
-                            <div class="message-box position-relative"
-                            v-for="message in activeUser.messages"
-                            :class="message.status === 'sent' ? 'send' : 'received'">
-                                <span>{{message.message}}</span>
+                            <div class="message-box send position-relative">
+                                <span>Hai portato a spasso il cane?</span>
                                 <div class="hour position-absolute">15:30</div>
                             </div>
-                            
+                            <div class="message-box send position-relative">
+                                <span>Ricordati di sistemare i panni</span>
+                                <div class="hour position-absolute">15:50</div>
+                            </div>
+                            <div class="message-box received position-relative">
+                                <span>Tutto fatto!</span>
+                                <div class="hour position-absolute">16:15</div>
+                            </div>
                         </div>
                     </div>
-
                     <div class="bottom-bar d-flex justify-content-around align-items-center py-2 px-3 gap-5">
                         <div class="emoji-icon">
                             <i class="fa-regular fa-face-smile"></i>
                         </div>
-
-                        <input type="text" 
-                            placeholder="Scrivi un messaggio" 
-                            class="message-text flex-grow-1 rounded"
-                            v-model="newMessage"
-                            @keyup.enter="sendNewMessage()">
-
+                        <input type="text" placeholder="Scrivi un messaggio" class="message-text flex-grow-1 rounded">
                         <div class="mic-icon">
                             <i class="fa-solid fa-microphone"></i>
                         </div>

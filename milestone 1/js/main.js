@@ -169,10 +169,45 @@ new Vue ({
 
   data: {
     contactList: contatti,
-
+    activeUser: contatti[0],
+    newMessage: "",
   },
 
   methods: {
-    
-  }
+    setActiveUser(contatto) {
+      this.activeUser = contatto;
+    },
+
+    activeContact (contatto){
+      if (this.activeUser === contatto) {
+        return "active"
+      }
+    },
+
+    sendNewMessage () {
+      if (this.newMessage.trim() === "") {
+        return;
+      };
+
+      this.activeUser.messages.push({
+        date: "19:00",
+        message: this.newMessage,
+        status: "sent",
+      });
+
+      this.newMessage = "";
+
+      const currentUser = this.activeUser
+
+      setTimeout(function replyMessage() {
+        currentUser.messages.push({
+          date: "19:01",
+          message: "ok!",
+          status: "received",
+        });
+      }, 1000) 
+    },
+  },
+
+  
 })
